@@ -1,13 +1,24 @@
 # React Context
 
+Note: The advantage of using context is we can get the value of something no matter the position in the component tree.
+
 ## Step One: Create a context to share between components
 
 - Create a new file and name it accordingly (UserContext, AuthContext, etc.).
 - Within that file, import { CreateContext } from React.
-- Export a constant with the name/scope of the context and set it to the function CreateContext(), passing in an initial value (if none, set to null).
+- Export a constant with the name/scope of the context and set it to the method CreateContext(), passing in an initial value (if none, set to null).
 
 ## Step Two: Wrap the components that you want to grab the state from in a provider
 
-- Import context where your components are instantiated (usually App)
-- Wrap the components which need access to the context, as a provider component (<ExampleContext.Provider></ExampleContext.Provider>)
-- Pass a value into the provider (<ExampleContext.Provider value='string'>)
+- Import context where your components are instantiated (usually App).
+- Wrap the components which need access to the context, as a provider component (<ExampleContext.Provider></ExampleContext.Provider>).
+- Pass a value into the provider (<ExampleContext.Provider value='value as a string'>).
+- Now any of the children components nested within the context provider can receive that value.
+
+## Step Three: Use the context in your components
+
+- Import { useContext } from React.
+- Import the context as a destructured object. (Import { exampleContext } from "../ExampleContext").
+- Declare a constant and set it to the useContext() method.
+- Pass in the context that you want to get the value for.
+- Use the context however you need.
