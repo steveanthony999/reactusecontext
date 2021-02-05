@@ -12,7 +12,7 @@ Note: The advantage of using context is we can get the value of something no mat
 
 - Import context { destructured } where your components are instantiated (usually App).
 - Wrap the components which need access to the context, as a provider component (<ExampleContext.Provider></ExampleContext.Provider>).
-- Pass a value into the provider (<ExampleContext.Provider value='value as a string'>).
+- Pass a value into the provider (<ExampleContext.Provider value='value as a string' or value={{ state, setState }}>).
 - Now any of the children components nested within the context provider can receive that value.
 
 ## Step Three: Use the context in your components
@@ -22,3 +22,7 @@ Note: The advantage of using context is we can get the value of something no mat
 - Declare a constant and set it to the useContext() method.
 - Pass in the context that you want to get the value for.
 - Use the context however you need.
+
+Note: Memoize if the context value changes frequently. May even be a best bractice to just do so, regardless.
+
+const providerForValue = useMemo(() => ({ value, setValue }), [value, setValue]);

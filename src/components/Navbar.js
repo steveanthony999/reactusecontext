@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
 const Navigation = () => {
-  const user = useContext(UserContext);
+  const { userName, setUserName } = useContext(UserContext);
 
   return (
     <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
@@ -23,7 +23,7 @@ const Navigation = () => {
           </Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href='#deets'>{user}</Nav.Link>
+          <Nav.Link href='#deets'>{userName}</Nav.Link>
           <Nav.Link eventKey={2} href='#memes'>
             Dank memes
           </Nav.Link>

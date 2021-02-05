@@ -3,12 +3,17 @@ import { UserContext } from '../contexts/UserContext';
 import Navigation from './Navbar';
 
 const Home = () => {
-  const user = useContext(UserContext);
+  const { userName, setUserName } = useContext(UserContext);
+
+  //   const updateUserName = () => {
+  //     setUserName('The Steve');
+  //   };
 
   return (
     <div>
       <Navigation />
-      <h1>Hello {user}</h1>
+      <h1>Hello {userName}</h1>
+      <button onClick={() => setUserName('The Steve')}>Update User Name</button>
     </div>
   );
 };
